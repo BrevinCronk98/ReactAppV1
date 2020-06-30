@@ -5,11 +5,19 @@ import TicketList from './TicketList';
 class TicketControl extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			formVisibleOnPage: false
+		};
 	}
 
 	render() {
-		return <React.Fragment />;
+		let currentlyVisiblyState = null;
+		if (this.state.formVisibleOnPage) {
+			currentlyVisiblyState = <NewTicketForm />;
+		} else {
+			currentlyVisiblyState = <TicketList />;
+		}
+		return <React.Fragment> {currentlyVisiblyState} </React.Fragment>;
 	}
 }
 
